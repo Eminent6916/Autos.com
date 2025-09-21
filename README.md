@@ -1,18 +1,19 @@
 # Autos.com
-Java Spring Boot
-
+## Java Spring Boot
+--port 6916
 #home
-http://localhost:6916/
+:6916/
 
-#get all cars
-http://localhost:6916/api/car
+#get all cars - GET
+:6916/api/car
 
-#fetch by id
-http://localhost:6916/api/car/102  
+#fetch by id - GET
+:6916/api/car/:ID 
 
 
-#create (Enum status [ AVAILABLE, SOLD, DELETED]
----load--
+#create (Enum status [ AVAILABLE, SOLD, DELETED] - POST
+:6916/api/car
+___body___
 {
   "carName": "Lexus RX",
   "model": "2023",
@@ -22,8 +23,9 @@ http://localhost:6916/api/car/102
   "made": "Japan"
 }
 
-#update by Id (Enum status [ AVAILABLE, SOLD, DELETED]
----load--
+#update by Id (Enum status [ AVAILABLE, SOLD, DELETED] - PUT
+:6916/api/car/:ID
+___body___
 {
   "carName": "Lexus RX",
   "model": "2024",
@@ -35,13 +37,13 @@ http://localhost:6916/api/car/102
 
 
 #Get by name
-http://localhost:6916/api/car/name/honda civic
+:6916/api/car/name/:name
 
 #Get car by it made
-http://localhost:6916/api/car/made/USA
+:6916/api/car/made/:made
 
-#Get by /made/name/year
-http://localhost:6916/api/car/usa/Honda Civic/2021
+#Get by made, name and year
+:6916/api/car/:made/:name/:year
 
-#Delete by id
-http://localhost:6916/api/car/105
+#Delete by id - DELETE
+:6916/api/car/:ID

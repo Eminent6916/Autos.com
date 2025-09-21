@@ -47,6 +47,7 @@ public class Car {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
+        status = Status.AVAILABLE;
     }
 
     @PreUpdate

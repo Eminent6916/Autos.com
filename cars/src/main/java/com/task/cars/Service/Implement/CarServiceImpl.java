@@ -1,5 +1,6 @@
 package com.task.cars.Service.Implement;
 
+import com.task.cars.Constants.Messages;
 import com.task.cars.Constants.Status;
 import com.task.cars.Error.CarNotFoundException;
 import com.task.cars.Model.Car;
@@ -31,16 +32,16 @@ public class CarServiceImpl implements CarService {
     public List<Car> fetchAll() throws CarNotFoundException {
         List<Car> cars = carRepository.findAllByStatusNot(Status.valueOf("DELETED"));
         if (cars.isEmpty()) {
-            throw new CarNotFoundException("No cars in the garage");
+            throw new CarNotFoundException(Messages.NO_CARS);
         }
         return cars;
     }
     @Override
     public com.task.cars.Model.Car fetchById(Long id) throws CarNotFoundException {
         Car car = carRepository.findById(id)
-                .orElseThrow(() -> new CarNotFoundException("Car Not Found"));
+                .orElseThrow(() -> new CarNotFoundException(Messages.CAR_NOT_FOUND));
         if (DELETED.equals(car.getStatus())) {
-            throw new CarNotFoundException("Car not found");
+            throw new CarNotFoundException(Messages.CAR_NOT_FOUND);
         }
         return car;
     }
